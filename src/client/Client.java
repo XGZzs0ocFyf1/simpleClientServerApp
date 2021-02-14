@@ -19,7 +19,7 @@ public class Client {
     private DataOutputStream dos;
     private JTextArea chatArea;
     private JTextField msgInputField;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+    private   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
 
     public Client() {
         try {
@@ -61,7 +61,7 @@ public class Client {
                 chatArea.append("Client [" + time + "] : " + msgInputField.getText() + "\n");
                 msgInputField.setText("");
             } catch (IOException e) {
-
+                e.printStackTrace();
             }
         }
     }
