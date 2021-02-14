@@ -61,7 +61,7 @@ public class Client {
                 chatArea.append("Client [" + time + "] : " + msgInputField.getText() + "\n");
                 msgInputField.setText("");
             } catch (IOException e) {
-
+                e.printStackTrace();
             }
         }
     }
