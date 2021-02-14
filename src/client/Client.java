@@ -19,7 +19,7 @@ public class Client {
     private DataOutputStream dos;
     private JTextArea chatArea;
     private JTextField msgInputField;
-    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("hh:mm:ss");
+    private   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
 
     public Client() {
         try {
@@ -43,7 +43,7 @@ public class Client {
                         System.out.println("Client  stopped by outer command /stop");
                         break;
                     }
-                    var time = FORMATTER.format(LocalDateTime.now());
+                    var time = formatter.format(LocalDateTime.now());
                     chatArea.append("Server [" + time + "] : " + message + "\n");
                 }
             } catch (IOException e) {
@@ -56,7 +56,7 @@ public class Client {
     public void send() {
         if (msgInputField.getText() != null && !msgInputField.getText().trim().isEmpty()) {
             try {
-                var time = FORMATTER.format(LocalDateTime.now());
+                var time = formatter.format(LocalDateTime.now());
                 dos.writeUTF(msgInputField.getText());
                 chatArea.append("Client [" + time + "] : " + msgInputField.getText() + "\n");
                 msgInputField.setText("");
